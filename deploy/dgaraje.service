@@ -1,0 +1,25 @@
+[Unit]
+Description=D'Garaje (Next.js) - reverse-proxied by Caddy at dgaraje.andresmorales.com.co
+After=network.target
+
+[Service]
+Type=simple
+User=telchar
+Group=telchar
+WorkingDirectory=/home/telchar/D-garaje
+Environment=NODE_ENV=production
+Environment=PORT=3035
+ExecStart=/usr/bin/npx next start -p 3035
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/var/log/dgaraje.log
+StandardError=append:/var/log/dgaraje.log
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/telchar/D-garaje /var/log
+
+[Install]
+WantedBy=multi-user.target
