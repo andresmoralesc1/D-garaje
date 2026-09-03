@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { products, formatCOP } from "@/lib/products";
 
@@ -58,30 +59,42 @@ export default function Home() {
     <div className="font-sans">
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-zinc-900 to-zinc-700 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
-          <p className="text-sm uppercase tracking-widest text-zinc-300">
-            Productos de calidad
-          </p>
-          <h1 className="mt-3 text-4xl sm:text-6xl font-black tracking-tight">
-            Mejores autopartes
-          </h1>
-          <p className="mt-4 max-w-xl text-zinc-200">
-            Compra, vende y encuentra las autopartes que tu vehículo necesita.
-            Envíos gratis por compras superiores a $400.000.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/productos"
-              className="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 transition"
-            >
-              Ver catálogo
-            </Link>
-            <Link
-              href="/contacto"
-              className="inline-flex items-center rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
-            >
-              Contáctanos
-            </Link>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:py-20 lg:grid-cols-2 lg:py-24">
+          <div>
+            <p className="text-sm uppercase tracking-widest text-zinc-300">
+              Productos de calidad
+            </p>
+            <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
+              Mejores autopartes
+            </h1>
+            <p className="mt-4 max-w-xl text-zinc-200">
+              Compra, vende y encuentra las autopartes que tu vehículo necesita.
+              Envíos gratis por compras superiores a $400.000.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/productos"
+                className="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 transition"
+              >
+                Ver catálogo
+              </Link>
+              <Link
+                href="/contacto"
+                className="inline-flex items-center rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition"
+              >
+                Contáctanos
+              </Link>
+            </div>
+          </div>
+          <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
+            <Image
+              src="/images/hero-wp.png"
+              alt="D'Garaje - autopartes y vehículos"
+              fill
+              priority
+              sizes="(max-width: 1024px) 80vw, 40vw"
+              className="object-contain drop-shadow-2xl"
+            />
           </div>
         </div>
       </section>
